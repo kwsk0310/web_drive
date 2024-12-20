@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "web-drive"
+version = "0.1.0"
+description = ""
+authors = ["kwsk0310 <kwsk0310@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyqtgraph = "0.13.3"
+PyQt5 = "5.15.10"
+pyqt5-qt5 = "5.15.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
