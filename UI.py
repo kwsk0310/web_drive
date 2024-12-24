@@ -115,7 +115,7 @@ class Ui_MainWindow(object):
         self.label_title_2.setText(_translate("MainWindow", "您是第一次使用此遠端名稱，請先進行連線設定"))
         self.next_2.setText(_translate("MainWindow", "Next"))
         self.back_2.setText(_translate("MainWindow", "Back"))
-        self.finish.setText(_translate("MainWindow", "Finish"))
+        self.finish.setText(_translate("MainWindow", "Close"))
         self.label_title_3.setText(_translate("MainWindow", "連線狀態："))
         self.back_3.setText(_translate("MainWindow", "Back"))
 

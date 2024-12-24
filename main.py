@@ -131,7 +131,7 @@ class Main(QtWidgets.QMainWindow, UI.Ui_MainWindow):
                 os.path.join(os.path.join(os.path.dirname(__file__), "rclone-v1.68.2-windows-amd64"),"rclone.conf"),
                 "mount",
                 self.remote+":",
-                os.path.join(os.path.dirname(__file__), "sftp"),
+                "D:/sftp",
                 "--rc"
             ]
             
@@ -144,14 +144,15 @@ class Main(QtWidgets.QMainWindow, UI.Ui_MainWindow):
                     shell=True
                 )
 
+                # 顯示結果
+                # self.info.setText(_translate("MainWindow", "The service has been started."))
+
                 # 不斷檢查 stop_event，當收到停止信號時停止執行
                 while not self.stop_event.is_set():
-                    for line in rclone_process.stdout:
-                        self.info.setText(_translate("MainWindow", line))
                     for line in rclone_process.stderr:
                         self.info.setText(_translate("MainWindow", line))
 
-                # 如果收到停止信號，則終止 rclone 進程
+                # # 如果收到停止信號，則終止 rclone 進程
                 # if os.name == 'nt':  # 如果是 Windows 系統
                 #     self.rclone_process.terminate()  # 直接終止進程
                 # else:  # 如果是 Unix 系統
@@ -185,10 +186,8 @@ class Main(QtWidgets.QMainWindow, UI.Ui_MainWindow):
             # 顯示結果
             if result.returncode == 0:
                 print("成功卸載 Rclone 配置")
-                print(result.stdout)
             else:
                 print("卸載 Rclone 配置失敗")
-                print(result.stderr)
 
 
         except Exception as e:
@@ -197,7 +196,7 @@ class Main(QtWidgets.QMainWindow, UI.Ui_MainWindow):
         # 發送停止信號
         finally:
             self.stop_event.set()
-            self.rclone_thread.join()
+            # self.rclone_thread.join()
             print("Rclone 線程已停止")
 
 
